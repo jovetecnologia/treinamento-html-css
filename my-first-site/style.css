@@ -1,9 +1,21 @@
+/* RESET BASICÃO */
+
 * {
   margin: 0;
   padding: 0;
   font-family: verdana, sans-serif;
   box-sizing:border-box;
 }
+
+html, body, span, p, form, img, a, ul, ol, li, table, tr, td, h1, h2, h3, div, header, figure, fieldset {
+  border:none; 
+  outline:none;
+  list-style-type:none;
+}
+
+img {max-width: 100%;}
+
+/* DEFAULT */
 
 .header {
   width: 100%;
@@ -13,71 +25,85 @@
 
 .nav {
   width: 100%;
-  height: 50px;
   background: #333;
 }
 
-.menu {
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
-}
+.menu, .image-grid {display: flex;}
+
+.menu-item {transition: all 0.2s linear;}
+
+.menu-item:hover {background-color: #fff;}
+
+.menu-item:hover a {color: #333;}
 
 .menu-item a {
-  width: 120px;
-  height: 50px;
+  padding: 0 1rem;
   text-decoration: none;
   color: #FFF;
-  display: block;
   line-height: 50px;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
-  transition: all 0.2s linear;
-}
-
-.menu-item a:hover {
-  color: #333;
-  background: #FFF;
 }
 
 .body-container {
-  width: 70%;
+  max-width: 1024px;
+  width: 100%;
+  padding: 2rem;
   margin: 0 auto;
-  margin-top: 50px;
 }
 
 .main-title {
   color: #E62117;
-  font-size: 50px;
+  font-size: 3rem;
 }
 
 .main-sub-title { 
   color: #999;
   font-weight: normal;
   margin: 15px 0;
+  font-size: 1.5rem;
 }
 
 .main-text {
   line-height: 25px;
-  font-size: 18px;
+  font-size: 1.2rem;
   font-family: helvetica;
   color: #333;
   margin-bottom: 15px;
-}
-
-.image-grid {
-  display: flex;
-  justify-content: space-between;
 }
 
 .footer {
   width: 100%;
   height: 40px;
   background: #444;
-  margin-top: 30px;
   color: #FFF;
   text-align: right;
   line-height: 40px;
   padding-right: 30px;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 767px){
+  
+  .menu {justify-content: center;}
+
+  .image-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-grid img {margin: 1rem 0;}
+}
+
+@media only screen and (min-width: 768px) {
+  .menu {justify-content: flex-end;}
+
+  .image-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .image-grid img {padding: 0 1rem;}
 }
